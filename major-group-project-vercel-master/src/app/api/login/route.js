@@ -2,7 +2,7 @@ import { cookies } from 'next/headers'
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
-    try {
+  try {
     const username = req.query.username;
     const pass = req.query.pass;
 
@@ -30,9 +30,10 @@ export async function GET(req, res) {
       }
     }
 
-    return Response.json({ "data": "" + valid + "" });
-
+    return NextResponse.json({ "data": "" + valid + "" });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    return Response.error(error);
+    console.error('Error:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
