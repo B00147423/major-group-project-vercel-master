@@ -14,7 +14,11 @@ const ModulePage = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [username, setUsername] = useState('');
   const router = useRouter();
-  const moduleId = localStorage.getItem('currentModuleId');
+  let moduleId;
+  if (typeof window === 'undefined'){
+    moduleId = localStorage.getItem('currentModuleId');
+  }
+  
   const [comments, setComments] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
