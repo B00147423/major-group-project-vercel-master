@@ -148,12 +148,18 @@ const ModulePage = () => {
   };
 
   const handleCreatePost = () => {
-    localStorage.setItem('currentModuleId', moduleId);
+    if (typeof window === 'undefined'){
+      localStorage.setItem('currentModuleId', moduleId);
+    }
+    
     router.push('/createPost');
   };
 
   const handleCreateAnnouncement = () => {
-    localStorage.setItem('currentModuleId', moduleId);
+    if (typeof window === 'undefined'){
+      localStorage.setItem('currentModuleId', moduleId);
+    }
+    
     router.push('/createAnnouncement');
   };
 
