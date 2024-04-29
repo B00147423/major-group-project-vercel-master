@@ -34,7 +34,5 @@ export async function GET(req, res) {
 
   } catch (error) {
     return Response.error(error);
-  } finally {
-    await client.close();
   }
 }
